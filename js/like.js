@@ -1,4 +1,4 @@
-let likes = document.getElementsByClassName("elements__item_description-like");
+let likes = document.getElementsByClassName("elements__item-description-like");
 for (let like of likes){
 like.onclick = () =>{
     if (like.style.backgroundImage === 'url("../../../../images/like-active.svg")'){
