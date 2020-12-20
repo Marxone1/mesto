@@ -1,0 +1,17 @@
+.elements__item-description-like{
+    margin: 31px 22.25px auto auto;
+}
+.elements__item-description-like:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.elements__item-description-like:active{
+    background-image: url(../../../../images/like-active.svg);
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+@media screen and (min-width: 320px) and (max-width: 1279px){
+    .elements__item-description-like{
+        margin-right: 18.24px;
+      }
+}
