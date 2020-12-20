@@ -1,0 +1,9 @@
+.elements__item{
+    max-width: 282px;
+    display: block;
+}
+@media screen and (min-width: 320px) and (max-width: 1279px){
+    .elements__item{
+        margin: 0 auto;
+      }
+}
