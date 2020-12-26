@@ -1,12 +1,13 @@
+@import url(../vendor/normalize.css);
 @import url(../vendor/Inter_Hinted_for_Windows/Web/inter.css);
 @import url(../blocks/body/body.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__opened/popup__opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container-close-button/popup__container-close-button.css);
 @import url(../blocks/popup/__container-form/popup__container-form.css);
 @import url(../blocks/popup/__container-form-title/popup__container-form-title.css);
-@import url(../blocks/popup/__container-form-input-username/popup__container-form-input-username.css);
-@import url(../blocks/popup/__container-form-input-proffesion/popup__container-form-input-proffesion.css);
+@import url(../blocks/popup/__container-form-input/popup__container-form-input.css);
 @import url(../blocks/popup/__container-form-save-button/popup__container-form-save-button.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
@@ -18,7 +19,7 @@
 @import url(../blocks/profile/__info-username-section/profile__info-username-section.css);
 @import url(../blocks/profile/__info-username/profile__info-username.css);
 @import url(../blocks/profile/__info-edit-button/profile__info-edit-button.css);
-@import url(../blocks/profile/__info-proffesion/profile__info-proffesion.css);
+@import url(../blocks/profile/__info-profession/profile__info-profession.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__add-button-image/profile__add-button-image.css);
 @import url(../blocks/elements/elements.css);
@@ -26,6 +27,7 @@
 @import url(../blocks/elements/__item-image/elements__item-image.css);
 @import url(../blocks/elements/__item-description/elements__item-description.css);
 @import url(../blocks/elements/__item-description-title/elements__item-description-title.css);
+@import url(../blocks/elements/__item-description-like-button/elements__item-description-like-button.css);
 @import url(../blocks/elements/__item-description-like/elements__item-description-like.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
