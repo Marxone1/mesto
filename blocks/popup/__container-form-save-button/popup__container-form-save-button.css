@@ -5,6 +5,12 @@
     background: #000000;
     border: none;
     border-radius: 2px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
 }
 .popup__container-form-save-button:hover{
     opacity: 0.8;
@@ -21,5 +27,7 @@
     .popup__container-form-save-button{
         min-width: 238px;
         min-height: 46px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
