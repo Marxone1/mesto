@@ -1,16 +1,15 @@
 # mesto
 --------------
-## Project description:
+## Описание проекта:
 -----------------------
-### This project will show you beautiful places:
+### Этот проект откроет для вас множесво прекрасных мест:
 ---------------------------------------------
-* profile
-* A photo (grid);
-* Beautiful places that can be liked;
-* You may not understand much, because the entire text is in Russian))
+* профиль, сделанный с помощью js, который вы можете редактировать;
+* Карточки с фотографиями и подписями к ним, выстроенные с помощью grid;
+* Вскоре вы сами сможете дополнить сайт своими любымыми местами.
 ----------------------------------------------------------------------
-### The project was created in html5 and css, so I advise you to open it with Visual Studio code, version 2018 or later
+### Проект был создан с помощью html5 и css, поэтому я рекомендую открывать его с помощью Visual Studio code, версии 2018 года или более поздней
 -----------------------------------------------------------------------------------------------------------------------
-##### This is my third, but definitely not my last project.
-##### [GH pages link](https://marxone1.github.io/)
-###### [Pigarev Mark](https://vk.com/mark438212)
+##### Это мой третий, но точно не последний проект.
+##### [ссылка на GH pages](https://marxone1.github.io/)
+###### [Пигарев Марк](https://vk.com/mark438212)

@@ -9,12 +9,12 @@
 <body class="body">
     <div class="popup">
         <div class="popup__container">
-            <button class="popup__container-close-button"></button>
-            <form class="popup__container-form">
-                <h2 class="popup__container-form-title">Редактировать профиль</h2>
-                <input type="text" name="username" value="введите имя" class="popup__container-form-input-username">
-                <input type="text" name="username" value="введите вашу профессию" class="popup__container-form-input-proffesion">
-                <input type="submit" class="popup__container-form-save-button" value="Сохранить">
+            <button type="button" class="popup__container-close-button"></button>
+            <h2 class="popup__container-form-title">Редактировать профиль</h2>
+            <form name="ueserData" class="popup__container-form">
+                <input type="text" name="username" value="введите имя" class="popup__container-form-input">
+                <input type="text" name="profession" value="введите вашу профессию" class="popup__container-form-input">
+                <button type="button" class="popup__container-form-save-button">Сохранить</button>
             </form>
         </div>
     </div>
@@ -29,7 +29,7 @@
                 <div class="profile__info-username-section">
                     <h1 class="profile__info-username">Жак-Ив Кусто</h1>
                 <button class="profile__info-edit-button"></button></div>
-                <p class="profile__info-proffesion">Исследователь океана</p>
+                <p class="profile__info-profession">Исследователь океана</p>
             </div>
             <button class="profile__add-button"><img src="./images/add-button.svg" alt="Здесь должна быть кнопка добавить" class="profile__add-button-image"></button>
         </section>
@@ -38,42 +38,42 @@
                 <img src="./images/items/item.jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Карачаево-Черкессия</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
             <div class="elements__item">
                 <img src="./images/items/item(1).jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Гора Эльбрус</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
             <div class="elements__item">
                 <img src="./images/items/item(2).jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Домбай</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
             <div class="elements__item">
                 <img src="./images/items/item(1).jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Гора Эльбрус</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
             <div class="elements__item">
                 <img src="./images/items/item(2).jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Домбай</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
             <div class="elements__item">
                 <img src="./images/items/item.jpg" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title">Карачаево-Черкессия</h2>
-                    <img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like">
+                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
                 </div>
             </div>
         </section>
@@ -83,6 +83,5 @@
     </footer>
     </div>
     <script src="./js/popup.js"></script>
-    <script src="./js/like.js"></script>
 </body>
 </html>
