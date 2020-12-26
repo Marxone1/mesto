@@ -1,32 +1,25 @@
-function contentListener (){
-    let inputs = form.querySelectorAll("input");
-    let userName = document.getElementsByClassName("profile__info-username")[0].textContent;
-    let proffesion = document.getElementsByClassName("profile__info-proffesion")[0].textContent;
-    inputs[0].value = userName;
-    inputs[1].value = proffesion;
+let popup = document.querySelector(".popup");
+let openPopupButton = document.querySelector(".profile__info-edit-button");
+let closePopupButton = popup.querySelector(".popup__container-close-button");
+let popupSubmitButton = popup.querySelector(".popup__container-form-save-button");
+let userName = document.querySelector(".profile__info-username");
+let profession = document.querySelector(".profile__info-profession");
+let inputUsername = popup.querySelector("[name = 'username']");
+let inputProfession = popup.querySelector("[name = 'profession']")
+function openPopup (){
+    inputUsername.value = userName.textContent;
+    inputProfession.value = profession.textContent;
+    popup.classList.add("popup__opened");
 }
-
-function submitListener (event){
+function closePopup (){
+    popup.classList.remove("popup__opened");
+}
+function submitPopup (event){
     event.preventDefault()
-    let inputs = form.querySelectorAll("input");
-    let userName = inputs[0].value;
-    let proffesion = inputs[1].value;
-    document.getElementsByClassName("profile__info-username")[0].textContent = userName;
-    document.getElementsByClassName("profile__info-proffesion")[0].textContent = proffesion;
-    popup.style.display = "none"
+    userName.textContent = inputUsername.value;
+    profession.textContent = inputProfession.value;
+    closePopup()
 }
-
-let popup = document.getElementsByClassName("popup")[0];
-let closeButton = popup.querySelector("button");
-closeButton.onclick = ()=>{
-    popup.style.display = "none"
-}
-let editButton = document.getElementsByClassName("profile__info-edit-button")[0];
-editButton.onclick = ()=>{
-    popup.style.display = "flex"
-}
-
-document.addEventListener("DOMContentLoaded", contentListener)
-
-let form = document.getElementsByClassName("popup__container-form")[0];
-form.addEventListener("submit", submitListener)
+openPopupButton.addEventListener("click", openPopup);
+closePopupButton.addEventListener("click", closePopup);
+popupSubmitButton.addEventListener("click", submitPopup)
