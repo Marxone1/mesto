@@ -4,8 +4,8 @@ let openPopupButton = document.querySelector(".profile__info-edit-button");
 let closePopupButton = popup.querySelector(".popup__container-close-button");
 let userName = document.querySelector(".profile__info-username");
 let profession = document.querySelector(".profile__info-profession");
-let inputUsername = popup.querySelector(".popup__container-form-input-username_text_username");
-let inputProfession = popup.querySelector(".popup__container-form-input-username_text_profession");
+let inputUsername = popup.querySelector(".popup__container-form-input-username_input_username");
+let inputProfession = popup.querySelector(".popup__container-form-input-username_input_profession");
 function openPopup (){
     inputUsername.value = userName.textContent;
     inputProfession.value = profession.textContent;
