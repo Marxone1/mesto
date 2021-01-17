@@ -1,0 +1,10 @@
+.add-place{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

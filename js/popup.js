@@ -12,7 +12,11 @@ function openPopup (){
     popup.classList.add("popup__opened");
 }
 function closePopup (){
-    popup.classList.remove("popup__opened");
+    popup.classList.add("close")
+  setTimeout(() => {
+    popup.classList.remove("popup__opened")
+    popup.classList.remove("close")
+  }, 428)
 }
 function submitPopup (event){
     event.preventDefault();
