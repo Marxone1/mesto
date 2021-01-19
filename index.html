@@ -12,8 +12,8 @@
             <button type="button" class="popup__container-close-button"></button>
             <h2 class="popup__container-form-title">Редактировать профиль</h2>
             <form name="ueserData" class="popup__container-form">
-                <input type="text" name="username" value="введите имя" class="popup__container-form-input popup__container-form-input_text_username">
-                <input type="text" name="profession" value="введите вашу профессию" class="popup__container-form-input popup__container-form-input_text_profession">
+                <input required type="text" name="username" value="введите имя" class="popup__container-form-input popup__container-form-input_text_username">
+                <input required type="text" name="profession" value="введите вашу профессию" class="popup__container-form-input popup__container-form-input_text_profession">
                 <button type="submit" class="popup__container-form-save-button">Сохранить</button>
             </form>
         </div>
@@ -23,11 +23,18 @@
             <button type="button" class="add-place__container-close-button"></button>
             <h2 class="add-place__container-form-title">Новое место</h2>
             <form name="ueserData" class="add-place__container-form">
-                <input type="text" name="name" placeholder="Название" class="add-place__container-form-input add-place__container-form-input_text_name">
-                <input type="text" name="link" placeholder="Ссылка на картинку" class="add-place__container-form-input add-place__container-form-input_text_link">
+                <input required type="text" name="name" placeholder="Название" class="add-place__container-form-input add-place__container-form-input_text_name">
+                <input required type="url" name="link" placeholder="Ссылка на картинку" class="add-place__container-form-input add-place__container-form-input_text_link">
                 <button type="submit" class="add-place__container-form-save-button">Создать</button>
             </form>
         </div>
+    </div>
+    <div class="image-popup">
+        <div class="image-popup__container">
+            <button type="button" class="image-popup__close-button"></button>
+            <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="здесь должна быть картинка" class="image-popup__image">
+            <h2 class="image-popup__description">здесь должно быть название</h2>
+        </div>    
     </div>
     <div class="page">
     <header class="header">
@@ -58,19 +65,11 @@
                 <img src="no" alt="здесь должна быть картинка" class="elements__item-image">
                 <div class="elements__item-description">
                     <h2 class="elements__item-description-title"></h2>
-                    <button type="button" class="elements__item-description-like-button"><img src="./images/like.svg" alt="здесь должно быть сердце" class="elements__item-description-like"></button>
+                    <button type="button" class="elements__item-description-like-button"></button>
                 </div>
-            </div>
-            <div class="image-popup">
-                <div class="image-popup__container">
-                    <button type="button" class="image-popup__close-button"></button>
-                    <img src="no" alt="здесь должна быть картинка" class="image-popup__image">
-                    <h2 class="image-popup__description">здесь должно быть название</h2>
-                </div>    
             </div>
         </div>
     </template>
-    <script src="./js/popup.js"></script>
-    <script src="./js/add-place.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

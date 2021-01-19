@@ -2,7 +2,6 @@
 @import url(../vendor/Inter_Hinted_for_Windows/Web/inter.css);
 @import url(../blocks/body/body.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__opened/popup__opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container-close-button/popup__container-close-button.css);
 @import url(../blocks/popup/__container-form/popup__container-form.css);
@@ -10,7 +9,6 @@
 @import url(../blocks/popup/__container-form-input/popup__container-form-input.css);
 @import url(../blocks/popup/__container-form-save-button/popup__container-form-save-button.css);
 @import url(../blocks/add-place/add-place.css);
-@import url(../blocks/add-place/__opened/add-place__opened.css);
 @import url(../blocks/add-place/__container/add-place__container.css);
 @import url(../blocks/add-place/__container-close-button/add-place__container-close-button.css);
 @import url(../blocks/add-place/__container-form/add-place__container-form.css);
@@ -18,11 +16,11 @@
 @import url(../blocks/add-place/__container-form-input/add-place__container-form-input.css);
 @import url(../blocks/add-place/__container-form-save-button/add-place__container-form-save-button.css);
 @import url(../blocks/image-popup/image-popup.css);
-@import url(../blocks/image-popup/__opened/image-popup__opened.css);
 @import url(../blocks/image-popup/__container/image-popup__container.css);
 @import url(../blocks/image-popup/__close-button/image-popup__close-button.css);
 @import url(../blocks/image-popup/__image/image-popup__image.css);
 @import url(../blocks/image-popup/__description/image-popup__description.css);
+@import url(../blocks/opened/opened.css);
 @import url(../blocks/close/close.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
@@ -46,5 +44,6 @@
 @import url(../blocks/elements/__item-description-title/elements__item-description-title.css);
 @import url(../blocks/elements/__item-description-like-button/elements__item-description-like-button.css);
 @import url(../blocks/elements/__item-description-like/elements__item-description-like.css);
+@import url(../blocks/elements/__item-description-like-button/__item-description-like-button__active/elements__item-description-like-button__active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
