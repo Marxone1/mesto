@@ -43,7 +43,6 @@
 @import url(../blocks/elements/__item-description/elements__item-description.css);
 @import url(../blocks/elements/__item-description-title/elements__item-description-title.css);
 @import url(../blocks/elements/__item-description-like-button/elements__item-description-like-button.css);
-@import url(../blocks/elements/__item-description-like/elements__item-description-like.css);
 @import url(../blocks/elements/__item-description-like-button/__item-description-like-button__active/elements__item-description-like-button__active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
