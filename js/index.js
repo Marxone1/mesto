@@ -24,12 +24,12 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-const addPlace = document.getElementById("addPlace");
+const addPlace = document.querySelector(".add-place");
 const addPlaceForm = addPlace.querySelector(".add-place__container-form");
 const openAddPlaceButton = document.querySelector(".profile__add-button");
 const closeAddPlaceButton = addPlace.querySelector(".add-place__container-close-button");
 const elements = document.querySelector('.elements');
-const popup = document.getElementById("popup");
+const popup = document.querySelector(".popup");
 const popupForm = popup;
 const openPopupButton = document.querySelector(".profile__info-edit-button");
 const closePopupButton = popup.querySelector(".popup__container-close-button");
@@ -38,7 +38,7 @@ const profession = document.querySelector(".profile__info-profession");
 const inputUsername = popup.querySelector(".popup__container-form-input_text_username");
 const inputProfession = popup.querySelector(".popup__container-form-input_text_profession");
 const imageCloseButton = document.querySelector('.image-popup__close-button');
-const imagePopup = document.getElementById("imagePopup");
+const imagePopup = document.querySelector(".image-popup");
 
 function addCard( elements, cardElement){
     elements.prepend(cardElement);
