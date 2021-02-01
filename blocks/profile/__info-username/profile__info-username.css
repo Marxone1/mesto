@@ -8,7 +8,7 @@
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 254px;
+    max-width: 295px;
 }
 @media screen and (max-width: 1279px){
     .profile__info-username{
