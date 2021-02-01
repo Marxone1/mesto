@@ -3,7 +3,7 @@
     max-height: 22px;
     margin: 14px 64px;
 }
-@media screen and (min-width: 320px) and (max-width: 1279px){
+@media screen and (max-width: 1279px){
     .profile__add-button-image{
         max-width: 17px;
         max-height: 17px;

@@ -19,7 +19,7 @@
     opacity: 1;
 }
 
-@media screen and (min-width: 320px) and (max-width: 1279px){
+@media screen and (max-width: 1279px){
     .elements__item-description-like-button{
         margin-right: 18.24px;
       }
