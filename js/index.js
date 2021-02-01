@@ -65,8 +65,8 @@ function createCard(name, link){
 
 function submitAddPlace (event){
   event.preventDefault();
-  const name = addPlaceForm.querySelector('.add-place__container-form-input_text_name').value;
-  const link = addPlaceForm.querySelector('.add-place__container-form-input_text_link').value;
+  const name = addPlaceForm.querySelector('.popup__container-form-input_add-place_name').value;
+  const link = addPlaceForm.querySelector('.popup__container-form-input_add-place_link').value;
   addCard(elements, createCard(name, link));
   closePopup(addPlace);
   event.target.reset();
