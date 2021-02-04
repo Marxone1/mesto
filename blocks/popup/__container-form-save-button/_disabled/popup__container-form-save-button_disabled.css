@@ -1,0 +1,7 @@
+.popup__container-form-save-button_disabled{
+    border: 1px solid #c4c4c4;
+    background: rgba(0, 0, 0, 0);
+    border-color: #c4c4c4;
+    color: #c4c4c4;
+    pointer-events: none;
+}

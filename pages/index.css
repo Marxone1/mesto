@@ -1,6 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/Inter_Hinted_for_Windows/Web/inter.css);
 @import url(../blocks/body/body.css);
+@import url(../blocks/error/error.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container/_image-popup/popup__container_image-popup.css);
@@ -9,7 +10,9 @@
 @import url(../blocks/popup/__container-form-title/popup__container-form-title.css);
 @import url(../blocks/popup/__container-form-input/popup__container-form-input.css);
 @import url(../blocks/popup/__container-form-input/_add-place/popup__container-form-input_add-place.css);
+@import url(../blocks/popup/__container-form-input/_error/popup__container-form-input_error.css);
 @import url(../blocks/popup/__container-form-save-button/popup__container-form-save-button.css);
+@import url(../blocks/popup/__container-form-save-button/_disabled/popup__container-form-save-button_disabled.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__description/popup__description.css);
 @import url(../blocks/opened/opened.css);
