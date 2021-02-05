@@ -1,6 +1,15 @@
+const enableValidation = {
+  formSelector: '.popup__container-form',
+  inputSelector: '.popup__container-form-input',
+  submitButtonSelector: '.popup__container-form-save-button',
+  inactiveButtonClass: '.popup__container-form-save-button_disabled',
+  inputErrorClass: '.popup__container-form-input_error',
+  errorClass: '.error'
+}; 
+
 function validate(popupForm){
-    const inputs = Array.from(popupForm.querySelectorAll(".popup__container-form-input"));
-    const saveButton = popupForm.querySelector('.popup__container-form-save-button')
+    const inputs = Array.from(popupForm.querySelectorAll(enableValidation.inputSelector));
+    const saveButton = popupForm.querySelector(enableValidation.submitButtonSelector)
     checkButton(saveButton, inputs)
     inputs.forEach((input) => {
       input.addEventListener('input', function(evt){
@@ -13,28 +22,28 @@ function validateInput(input){
     if (!input.validity.valid){
       const errorMessage = input.validationMessage
       showErrorMessage(popupForm, input, errorMessage)
-      input.classList.add('popup__container-form-input_error')
+      input.classList.add(enableValidation.inputErrorClass)
     }else{
       hideErrorMessage(popupForm, input)
-      input.classList.remove('popup__container-form-input_error')
+      input.classList.remove(enableValidation.inputErrorClass)
     }
 }
 function checkButton(button, inputs){
     if (hasInvalidInputs(inputs)){
-      button.classList.add('popup__container-form-save-button_disabled')
+      button.classList.add(enableValidation.inactiveButtonClass)
     }else{
-      button.classList.remove('popup__container-form-save-button_disabled')
+      button.classList.remove(enableValidation.inactiveButtonClass)
     }
 }
 function hasInvalidInputs(inputs){
     return inputs.some((input) => {return !input.validity.valid})
 }
 function showErrorMessage(popupForm, input, errorMessage){
-    const errorElement = input.parentNode.querySelector('.error')
+    const errorElement = input.parentNode.querySelector(enableValidation.errorClass)
     errorElement.textContent = errorMessage
 }
 function hideErrorMessage(popupForm, input){
-    const errorElement = input.parentNode.querySelector('.error')
+    const errorElement = input.parentNode.querySelector(enableValidation.errorClass)
     errorElement.textContent = ""
 }
 
