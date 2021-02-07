@@ -2,7 +2,6 @@ const settings = {
   formSelector: '.popup__container-form',
   inputSelector: '.popup__container-form-input',
   submitButtonSelector: '.popup__container-form-save-button',
-  errorSelector: '.error',
   inactiveButtonClass: 'popup__container-form-save-button_disabled',
   inputErrorClass: 'popup__container-form-input_error',
   errorClass: 'error'
@@ -23,28 +22,27 @@ const setEventListeners = (formElement) => {
   toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(inputElement);
       toggleButtonState(inputList, buttonElement);
     });
   });
 };
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (inputElement) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(inputElement);
   }
 };
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(settings.errorSelector);
+const showInputError = (inputElement, errorMessage) => {
+  const errorElement = inputElement.parentNode.querySelector(`.${settings.errorClass}`);
   inputElement.classList.add(settings.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(settings.errorClass);
 };
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(settings.inputSelector);
+const hideInputError = (inputElement) => {
+  const errorElement = inputElement.parentNode.querySelector(`.${settings.errorClass}`);
   inputElement.classList.remove(settings.inputErrorClass);
-  errorElement.classList.remove(settings.errorClass);
   errorElement.textContent = '';
 };
 const toggleButtonState = (inputList, buttonElement) =>{
