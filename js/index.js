@@ -45,15 +45,14 @@ function addCard( elements, cardElement){
   elements.prepend(cardElement);
 }
 function createCard(name, link){
-  console.log(name)
   const cardTemplate = card.content.cloneNode(true);
   const likeElement = cardTemplate.querySelector('.elements__item-description-like-button');
   const deleteElement = cardTemplate.querySelector('.elements__item-description-delete-button');
   const imageElement = cardTemplate.querySelector('.elements__item-image')
   imageElement.addEventListener("click", () => {
     imagePopup.querySelector('.popup__description').textContent = name;
-    image.alt = 'здесь должна быть картинка';
-    image.src = link;
+    imageElement.alt = 'здесь должна быть картинка';
+    imageElement.src = link;
     openPopup(imagePopup);
   })
   deleteElement.addEventListener("click", deleteListener);
