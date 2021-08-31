@@ -1,0 +1,42 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "--------------\r ## Описание проекта:\r -----------------------\r ### Этот проект откроет для вас множесво прекрасных мест:\r ---------------------------------------------\r * профиль, сделанный с помощью js, который вы можете редактировать;\r * Карточки с фотографиями и подписями к ним, выстроенные с помощью grid;\r * Вскоре вы сами сможете дополнить сайт своими любымыми местами.\r ----------------------------------------------------------------------\r ### Проект был создан с помощью html5 и css, поэтому я рекомендую открывать его с помощью Visual Studio code, версии 2018 года или более поздней\r -----------------------------------------------------------------------------------------------------------------------\r ##### Это мой третий, но точно не последний проект.\r ##### [ссылка на GH pages](https://marxone1.github.io/)\r ###### [Пигарев Марк](https://vk.com/mark438212)",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "author": "Marxone1",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marxone1/mesto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Marxone1/mesto/issues"
+  },
+  "homepage": "https://github.com/Marxone1/mesto#readme",
+  "keywords": [
+    "mesto"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "autoprefixer": "^10.3.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^6.2.0",
+    "cssnano": "^5.0.8",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.1",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^6.1.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.16.4",
+    "webpack-dev-server": "^4.1.0"
+  }
+}
