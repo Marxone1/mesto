@@ -1,0 +1,5 @@
+.opened{
+    position: fixed;
+    visibility: visible;
+    opacity: 1;
+}
