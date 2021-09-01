@@ -28,26 +28,27 @@ profilePopupFormValidator.enableValidation()
 const cardList = new Section({
   items: initialCards,
   renderer: (item) =>{
-    const newCardElement = new Card(
-      {
-        card: item,
-          handleCardClick: (name, link) => {
-            popupWithImage.open(name, link);
-          },
-        },
-        templateSelector
-      );
-      const cardElement = newCardElement.createCard();
-      cardList.addItem(cardElement);
+    createCard(item)
     },
   },
   containerSelector
 );
 cardList.renderItems();
-cardList.renderItems();
 
 
-
+function createCard(item){
+  const newCardElement = new Card(
+    {
+      card: item,
+        handleCardClick: (name, link) => {
+          popupWithImage.open(name, link);
+        },
+      },
+      templateSelector
+    );
+    const cardElement = newCardElement.createCard();
+    cardList.addItem(cardElement);
+}
 
 const popupWithImage = new PopupWithImage('.image-popup')
 popupWithImage.setEventListeners()
