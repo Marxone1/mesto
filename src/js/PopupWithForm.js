@@ -6,10 +6,10 @@ export class PopupWithForm extends Popup{
         this._submitCallback = submitCallback
     }
     _getInputValues(){
-        const inputList = Array.from(this._popup.querySelectorAll('.form-input'));
+        const inputList = Array.from(this._popup.getElementsByTagName('input'))
         const data = {};
         inputList.forEach((input) => {
-        data[input.name] = input.value;
+            data[input.getAttribute('Name')] = input.value;
          });
         return data;
     }

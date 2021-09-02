@@ -20,6 +20,7 @@ import { profession } from './constants.js';
 import { editButton } from './constants.js';
 import { editedProfession } from './constants.js';
 import { editedUsername } from './constants.js';
+
 const placeAddFormValidator = new FormValidator(settings, placeAddForm)
 placeAddFormValidator.enableValidation()
 const profilePopupFormValidator = new FormValidator(settings, popupForm)
@@ -57,16 +58,15 @@ popupWithImage.setEventListeners()
 const userInfo = new UserInfo(username, profession)
 
 const popupEditProfile = new PopupWithForm('.profile-popup',
-  ({username, profession}) =>{
-    userInfo.setUserInfo(username, profession)
+  (data) =>{
+    userInfo.setUserInfo(data)
     popupEditProfile.close()
   })
   popupEditProfile.setEventListeners()
 
 const popupImageAdd = new PopupWithForm('.add-place',
-  ({name, link}) => {
-    initialCards.unshift({name, link})
-    cardList.renderItems();
+  (data) => {
+    createCard(data)
     popupImageAdd.close()
   }
 )
@@ -75,8 +75,8 @@ popupImageAdd.setEventListeners()
 
 editButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  editedUsername.value = data.name;
-  editedProfession.value = data.title;
+  editedUsername.value = data.username;
+  editedProfession.value = data.profession;
   profilePopupFormValidator.toggleButtonState();
   popupEditProfile.open();
 });

@@ -1,23 +1,21 @@
 export  class UserInfo {
     constructor(username, profession) {
-      this._username = username;
-      this._profession = profession;
-      this._profileName = document.querySelector(".profile__info-username-section");
-      this._profileTitle = document.querySelector(".profile__info-profession");
+      this._profileName = username
+      this._profileTitle = profession
+      this._editedProfileName = document.querySelector(".popup__container-form-input_text_username")
+      this._editedProfileTitle = document.querySelector(".popup__container-form-input_text_profession")
     }
   
     getUserInfo() {
-      this._username = this._profileName.textContent;
-      this._profession = this._profileTitle.textContent;
       const data = {
-        username: this._username,
-        profession: this._profession,
+        username: this._profileName.textContent,
+        profession: this._profileTitle.textContent,
       };
       return data;
     }
   
-    setUserInfo(username, profession) {
-      this._profileName.textContent = username;
-      this._profileTitle.textContent = profession;
+    setUserInfo(data) {
+      this._profileName.textContent = data.username;
+      this._profileTitle.textContent = data.profession
     }
   }
