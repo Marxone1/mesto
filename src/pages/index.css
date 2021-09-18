@@ -2,6 +2,7 @@
 @import url(../vendor/Inter_Hinted_for_Windows/Web/inter.css);
 @import url(../blocks/body/body.css);
 @import url(../blocks/error/error.css);
+@import url(../blocks/removed/removed.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container/_image-popup/popup__container_image-popup.css);
@@ -21,7 +22,9 @@
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar/_hovered/profile__avatar_hovered.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__info-username-section/profile__info-username-section.css);
 @import url(../blocks/profile/__info-username/profile__info-username.css);
@@ -36,7 +39,9 @@
 @import url(../blocks/elements/__item-image/elements__item-image.css);
 @import url(../blocks/elements/__item-description/elements__item-description.css);
 @import url(../blocks/elements/__item-description-title/elements__item-description-title.css);
+@import url(../blocks/elements/__item-description-like-container/elements__item-description-like-container.css);
 @import url(../blocks/elements/__item-description-like-button/elements__item-description-like-button.css);
+@import url(../blocks/elements/__item-description-like-counter/elements__item-description-like-counter.css);
 @import url(../blocks/elements/__item-description-like-button/__item-description-like-button__active/elements__item-description-like-button__active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
