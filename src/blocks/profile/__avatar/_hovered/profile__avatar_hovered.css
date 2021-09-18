@@ -1,0 +1,15 @@
+.profile__avatar_hovered{
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    opacity: 0;
+    top: 48px;
+    left: 48px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+.profile__avatar_hovered:hover{
+    opacity: 1;
+}

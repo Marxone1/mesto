@@ -17,4 +17,7 @@ export class Section {
         this._renderer(item);
       });
     }
+    setItems(cards){
+      this._renderedItems = cards;
+    }
   }

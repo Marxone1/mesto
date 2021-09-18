@@ -1,5 +1,4 @@
 .elements__item-description-like-button{
-    margin: 30px 20px auto auto;
     background-color: #fff;
     background-image: url(../../../images/like.svg);
     cursor: pointer;
@@ -17,10 +16,4 @@
     background-image: url(../../.././images/like-active.svg);
     background-repeat: no-repeat;
     opacity: 1;
-}
-
-@media screen and (max-width: 1279px){
-    .elements__item-description-like-button{
-        margin-right: 18.24px;
-      }
 }
