@@ -1,0 +1,7 @@
+.elements__item-description-delete{
+    margin: 0;
+}
+.elements__item-description-delete:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}

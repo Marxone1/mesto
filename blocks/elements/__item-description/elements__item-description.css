@@ -1,0 +1,8 @@
+.elements__item-description{
+    background-color: white;
+    color: black;
+    display: flex;
+    margin-top: -4px;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+}
