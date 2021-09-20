@@ -6,7 +6,11 @@ export const settings = {
     inputErrorClass: 'popup__container-form-input_error',
     errorClass: 'error'
   };
-export let cards = [];
+let cards = [];
+function setCards(value){
+  cards = value
+}
+export {cards, setCards}
 const placeAdd = document.querySelector(".add-place");
 export const placeAddForm = placeAdd.querySelector(".popup__container-form");
 const profilePopup = document.querySelector(".profile-popup");
@@ -22,10 +26,14 @@ export const editedProfession = document.querySelector('.popup__container-form-i
 export const editButton = document.querySelector(".profile__info-edit-button")
 export const avatarContainer = document.querySelector(".profile__avatar-container")
 export const avatar = avatarContainer.querySelector('.profile__avatar');
-export let profileData = {
+let profileData = {
   about: "",
   avatar: "",
   cohort: "cohort-27",
   name: "",
   _id: "3fe0c274-9eb1-4b1e-a5bb-2bea77a9fe15"
 };
+function setProfileData(value){
+  profileData = value
+}
+export {profileData, setProfileData}

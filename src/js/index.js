@@ -11,7 +11,7 @@ import {Api} from './Api.js';
 import { PopupWithDeletion } from './PopupWithDeletion';
 
 import { settings } from './constants.js';
-import { cards } from './constants.js';
+import { cards, setCards } from './constants.js';
 
 import { placeAddForm } from './constants.js';
 import { popupForm } from './constants.js';
@@ -24,7 +24,7 @@ import { editedProfession } from './constants.js';
 import { editedUsername } from './constants.js';
 import { avatarContainer } from './constants.js';
 import { avatar } from './constants.js';
-import { profileData } from './constants.js';
+import { profileData, setProfileData} from './constants.js';
 import { avatarForm } from './constants.js';
 
 function createCard(item){
@@ -56,9 +56,9 @@ fetch('https://mesto.nomoreparties.co/v1/cohort-27/users/me',
 })
   .then((res) => res.json())
   .then((res) => {
-    profileData = res;
-    userInfo.setUserInfo(profileData);
-    userInfo.setUserAvatar(profileData);
+    setProfileData(res);
+    userInfo.setUserInfo(res);
+    userInfo.setUserAvatar(res);
   });
 fetch('https://mesto.nomoreparties.co/v1/cohort-27/cards',
 {
@@ -68,8 +68,8 @@ fetch('https://mesto.nomoreparties.co/v1/cohort-27/cards',
 })
   .then((res) => res.json())
   .then((res) => {
-    cards = res.reverse();
-    cards.forEach((card) => {createCard(card)})
+    setCards(res.reverse());
+    res.forEach((card) => {createCard(card)})
   });
 
 const placeAddFormValidator = new FormValidator(settings, placeAddForm)
@@ -105,6 +105,7 @@ const popupEditProfile = new PopupWithForm('.profile-popup',
     api.editProfileInfo(data)
       .then(()=> {
         userInfo.setUserInfo(data)
+        popupEditProfile._button.textContent = popupEditProfile._textContainer
         popupEditProfile.close()
       })
   })
@@ -115,7 +116,6 @@ const popupEditAvatar = new PopupWithForm('.avatar',
     api.editProfileAvatar(data)
       .then(()=> {
         userInfo.setUserAvatar(data)
-        popupEditAvatar._button.textContent = popupEditAvatar._textContaine
         popupEditAvatar.close()
         fetch('https://mesto.nomoreparties.co/v1/cohort-27/users/me',
         {
@@ -125,8 +125,10 @@ const popupEditAvatar = new PopupWithForm('.avatar',
         })
           .then((res) => res.json())
           .then((res) => {
-            profileData = res;
-            userInfo.setUserInfo(profileData);
+            setProfileData(res);
+            userInfo.setUserInfo(res);
+            popupEditAvatar._button.classList.add('popup__container-form-save-button_disabled')
+            popupEditAvatar._button.textContent = popupEditAvatar._textContainer
           });
       })
   }
@@ -146,8 +148,12 @@ const popupImageAdd = new PopupWithForm('.add-place',
     data.owner._id = profileData._id
     createCard(data)
     api.addCard(data)
-      .then(() => popupImageAdd._button.textContent = popupImageAdd._textContainer)
-    popupImageAdd.close()
+      .then(() => {
+        popupImageAdd._button.textContent = popupImageAdd._textContainer
+        popupImageAdd.close()
+        location.reload()
+      })
+    
   }
 )
 popupImageAdd.setEventListeners()

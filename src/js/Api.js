@@ -74,6 +74,8 @@ export class Api {
     .then(this._getResponseData);
   }
   deleteCard(cardId) {
+    console.log(this._authorization)
+    console.log(this._contentTip)
     const id = cardId;
     return fetch(`${this._url}cards/${id}`, {
       method: 'DELETE',
