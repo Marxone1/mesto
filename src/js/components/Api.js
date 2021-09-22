@@ -21,16 +21,12 @@ export class Api {
     })
     .then((res) => res.json())
     .then((res) => {
-      if (res.some(card => card._id) && (this._id)){
-        cardList.renderItems(res.reverse())
-      }else{
-        console.log("Ошибка: проблема с принадлежностью карточек")
-      }
+      this.res = res
       this._getResponseData
     })
   }
 
-  getProfile(profileData, userInfo) {
+  getProfile() {
     return fetch(`${this._url}users/me`, {
       method: 'GET',
       headers: {
@@ -40,12 +36,18 @@ export class Api {
     })
      .then((res) => res.json())
      .then((res) => {
-        this._id = res._id;
-        profileData._id = this._id
-        userInfo.setUserInfo(res);
-        userInfo.setUserAvatar(res);
+        this.res = res
         this._getResponseData
     })
+  }
+
+  getUserId(res){
+    if (res){
+      this._id = res._id
+      return this._id
+    }else{
+      return this._id
+    }
   }
   editProfileInfo(profileData) {
     return fetch(`${this._url}users/me`, {
@@ -116,11 +118,6 @@ export class Api {
         'Content-Type': this._contentTip,
       }
     })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    .then((res) => this._getResponseData(res));
   }
 }

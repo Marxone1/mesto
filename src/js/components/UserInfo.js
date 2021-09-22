@@ -19,14 +19,25 @@ export  class UserInfo {
     }
   
     setUserInfo(profileData) {
-      this._profileName.textContent = profileData.name;
-      this._profileTitle.textContent = profileData.about;
+      if (profileData.name && profileData.about){
+        this._profileName.textContent = profileData.name;
+        this._profileTitle.textContent = profileData.about;
+      }else{
+        console.log('Ошибка загрузки профиля')
+      }
     }
     setUserAvatar(profileData){
       if (profileData.avatar){
         this._profileAvatar.src = profileData.avatar;
       }else{
         console.log('Ошибка загрузки аватара')
+      }
+    }
+    setUserId(profileData, id){
+      if (profileData){
+        return profileData._id = id
+      }else{
+        console.log('Ошибка загрузки ID gользователя')
       }
     }
   }

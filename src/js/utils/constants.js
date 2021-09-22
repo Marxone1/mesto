@@ -6,8 +6,14 @@ export const settings = {
     inputErrorClass: 'popup__container-form-input_error',
     errorClass: 'error'
   };
-export const cards = [];//если записать ее как константу, то я не смогу ее изменить в функции
-
+export const cards = [];
+export const popupSelectors = {
+  imagePopup: '.image-popup',
+  profilePopup: '.profile-popup',
+  avatarPopup: '.avatar',
+  addPlacePopup: '.add-place',
+  deletePopup: '.delete-popup'
+}
 const placeAdd = document.querySelector(".add-place");
 export const placeAddForm = placeAdd.querySelector(".popup__container-form");
 const profilePopup = document.querySelector(".profile-popup");
@@ -23,7 +29,7 @@ export const editedProfession = document.querySelector('.popup__container-form-i
 export const editButton = document.querySelector(".profile__info-edit-button")
 export const avatarContainer = document.querySelector(".profile__avatar-container")
 export const avatarSelector = '.profile__avatar'
-export const profileData = {//то же самое, если это константа, то я не могу записать в нее результат промиса
+export const profileData = {
   about: "",
   avatar: "",
   cohort: "cohort-27",

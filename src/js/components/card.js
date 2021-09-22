@@ -43,7 +43,6 @@ export class Card{
     })
   }
   _setLikes(card){
-    console.log(card)
     this._likesCounter.textContent = card.likes.length;
   }
   _setLikedStatus() {

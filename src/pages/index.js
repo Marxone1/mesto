@@ -13,6 +13,7 @@ import { PopupWithDeletion } from '../js/components/PopupWithDeletion';
 import { 
   settings,
   cards,
+  popupSelectors,
   placeAddForm,
   popupForm,
   containerSelector,
@@ -40,7 +41,7 @@ function createCard(item){
       handleCardClick: (name, link) => {
         popupWithImage.open(name, link);
       },
-      userData: api._id,
+      userData: api.getUserId(),
       handleCardLike: (evt)=>{
         if (!evt.target.classList.contains('elements__item-description-like-button__active')){
           return api.setLike(item._id)
@@ -53,7 +54,7 @@ function createCard(item){
       },
       handleCardDelete: () => {
         popupDelete.open(item);
-        popupDelete._button.addEventListener('click', () => {newCardElement.delete()})
+        popupDelete.button.addEventListener('click', () => {newCardElement.delete()})
       }
       },
       templateSelector
@@ -81,9 +82,13 @@ const api = new Api({
 })
 
 const userInfo = new UserInfo(nameSelector, aboutSelector, avatarSelector)
-api.getProfile(profileData, userInfo)
+api.getProfile()
+  .then(() => {
+    userInfo.setUserId(profileData, api.getUserId(api.res))
+    userInfo.setUserInfo(api.res);
+    userInfo.setUserAvatar(api.res);
+  })
   .catch(err => console.error(err))
-
 const cardList = new Section({
   items: cards,
   renderer: (item) =>{
@@ -93,38 +98,46 @@ const cardList = new Section({
   containerSelector
 );
 api.getCards(cardList)
+  .then(() => {
+    if (api.res.some(card => card._id) && (api._id)){//роверка на получение id карточек и пользователя, 
+      //то есть они не отрисуются до получения id пользователя 
+      cardList.renderItems(api.res.reverse())
+    }else{
+      console.log("Ошибка: проблема с принадлежностью карточек")
+    }
+  })
   .catch(err => console.error(err))
 
-const popupWithImage = new PopupWithImage('.image-popup')
+const popupWithImage = new PopupWithImage(popupSelectors.imagePopup)
 popupWithImage.setEventListeners()
 
-const popupEditProfile = new PopupWithForm('.profile-popup',
+const popupEditProfile = new PopupWithForm(popupSelectors.profilePopup,
   (data) =>{
     api.editProfileInfo(data)
-      .catch(err => console.error(err))
       .then(()=> {
         userInfo.setUserInfo(data)
-        popupEditProfile._button.textContent = popupEditProfile._textContainer
+        popupEditProfile.resetSubmitButton()
         popupEditProfile.close()
       })
+      .catch(err => console.error(err))
   })
 popupEditProfile.setEventListeners()
 
-const popupEditAvatar = new PopupWithForm('.avatar',
+const popupEditAvatar = new PopupWithForm(popupSelectors.avatarPopup,
   (data) =>{
     api.editProfileAvatar(data)
-      .catch(err => console.error(err))
       .then(()=> {
         userInfo.setUserAvatar(data)
         popupEditAvatar.close()
-        popupEditAvatar._button.classList.add('popup__container-form-save-button_disabled')
-        popupEditAvatar._button.textContent = popupEditAvatar._textContainer
+        avatarPopupFormValidator.toggleButtonState()
+        popupEditAvatar.resetSubmitButton()
       })
+      .catch(err => console.error(err))
   }
 )
 popupEditAvatar.setEventListeners()
 
-const popupImageAdd = new PopupWithForm('.add-place',
+const popupImageAdd = new PopupWithForm(popupSelectors.addPlacePopup,
   (data) => {
     data.likes = []
     data.likes.length = 0;
@@ -136,28 +149,25 @@ const popupImageAdd = new PopupWithForm('.add-place',
     data.owner.name = profileData.name
     data.owner._id = profileData._id
     api.addCard(data)
-      .catch(err => console.error(err))
       .then((res) => {
-        console.log(res)
         data._id = res._id
         createNewCard(data)
-        popupImageAdd._button.textContent = popupImageAdd._textContainer
+        popupImageAdd.resetSubmitButton()
         popupImageAdd.close()
       })
-    
+      .catch(err => console.error(err))    
   }
 )
 popupImageAdd.setEventListeners()
 
 const popupDelete = new PopupWithDeletion({
-  popupSelector: '.delete-popup',
+  popupSelector: popupSelectors.deletePopup,
   formSubmit: (card) =>{
     api.deleteCard(card)
-      .catch(err => console.error(err))
       .then(() => {
-        popupDelete._button.textContent = popupDelete._textContainer
         popupDelete.close();
-    });
+    })
+      .catch(err => console.error(err))
   }
 })
 popupDelete.setEventListeners()

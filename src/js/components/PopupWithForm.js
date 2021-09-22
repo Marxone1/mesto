@@ -20,7 +20,7 @@ export class PopupWithForm extends Popup{
         super.setEventListeners();
         this._popup.querySelector('.popup__container-form-save-button')
             .addEventListener('click', () => {
-                this.processingData();
+                this._renderLoading();
                 this._submitCallback(this._getInputValues())
         })
     }
@@ -28,7 +28,10 @@ export class PopupWithForm extends Popup{
         super.close();
         this._form.reset();
     }
-    processingData(){
+    _renderLoading(){
         this._button.textContent = 'Сохранение...';
+    }
+    resetSubmitButton(){
+        this._button.textContent = this._textContainer
     }
 }
