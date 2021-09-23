@@ -1,3 +1,5 @@
+import { profileData } from "../utils/constants"
+
 export  class UserInfo {
     constructor(nameSelector, aboutSelector, avatarSelector) {
       this._profileName = document.querySelector(nameSelector)
@@ -9,13 +11,14 @@ export  class UserInfo {
 
     }
   
-    getUserInfo() {
-      const profileData = {
-        name: this._profileName.textContent,
-        about: this._profileTitle.textContent,
-        avatar: this._avatar, 
-      };
-      return profileData;
+    getUserInfo(profileData) {
+      profileData.name = this._profileName.textContent
+      profileData.about = this._profileTitle.textContent
+      profileData.avatar = this._profileAvatar.src
+      return profileData
+    }
+    getUserId(){
+      return this._id
     }
   
     setUserInfo(profileData) {
@@ -33,9 +36,10 @@ export  class UserInfo {
         console.log('Ошибка загрузки аватара')
       }
     }
-    setUserId(profileData, id){
+    setUserId(profileData, promise){
       if (profileData){
-        return profileData._id = id
+        this._id = promise._id
+        return profileData._id = this._id
       }else{
         console.log('Ошибка загрузки ID gользователя')
       }

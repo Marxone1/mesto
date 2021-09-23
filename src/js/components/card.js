@@ -7,7 +7,7 @@ export class Card{
     this._cardId = card._id;
     this._ownerName = card.owner.name;
     this._ownerId = card.owner._id;
-    this._user = userData;
+    this._user = userData._id;
     this._card = card
 
     this._openPopup = handleCardClick;

@@ -11,7 +11,7 @@ export class Api {
     return res.json();
   }
 
-  getCards(cardList) {
+  getCards() {
     return fetch(`${this._url}cards`, {
       method: 'GET',
       headers: {
@@ -19,10 +19,9 @@ export class Api {
         'Content-Type': this._contentTip,
       }
     })
-    .then((res) => res.json())
+    .then(this._getResponseData)
     .then((res) => {
-      this.res = res
-      this._getResponseData
+      this.cardsRes = res
     })
   }
 
@@ -34,19 +33,18 @@ export class Api {
         'Content-Type': this._contentTip,
       }
     })
-     .then((res) => res.json())
+     .then(this._getResponseData)
      .then((res) => {
-        this.res = res
-        this._getResponseData
+        this.profileRes = res
     })
   }
 
   getUserId(res){
     if (res){
-      this._id = res._id
-      return this._id
+      this.idRes = res._id
+      return this.idRes
     }else{
-      return this._id
+      return this.idRes
     }
   }
   editProfileInfo(profileData) {

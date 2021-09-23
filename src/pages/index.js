@@ -41,7 +41,7 @@ function createCard(item){
       handleCardClick: (name, link) => {
         popupWithImage.open(name, link);
       },
-      userData: api.getUserId(),
+      userData: profileData,
       handleCardLike: (evt)=>{
         if (!evt.target.classList.contains('elements__item-description-like-button__active')){
           return api.setLike(item._id)
@@ -82,13 +82,7 @@ const api = new Api({
 })
 
 const userInfo = new UserInfo(nameSelector, aboutSelector, avatarSelector)
-api.getProfile()
-  .then(() => {
-    userInfo.setUserId(profileData, api.getUserId(api.res))
-    userInfo.setUserInfo(api.res);
-    userInfo.setUserAvatar(api.res);
-  })
-  .catch(err => console.error(err))
+
 const cardList = new Section({
   items: cards,
   renderer: (item) =>{
@@ -97,16 +91,22 @@ const cardList = new Section({
   },
   containerSelector
 );
-api.getCards(cardList)
-  .then(() => {
-    if (api.res.some(card => card._id) && (api._id)){//роверка на получение id карточек и пользователя, 
-      //то есть они не отрисуются до получения id пользователя 
-      cardList.renderItems(api.res.reverse())
-    }else{
-      console.log("Ошибка: проблема с принадлежностью карточек")
-    }
-  })
-  .catch(err => console.error(err))
+
+const cardsGetting = api.getCards()
+const profileGetting = api.getProfile()
+
+Promise.all([cardsGetting, profileGetting])
+.then(() => {
+  userInfo.setUserInfo(api.profileRes);
+  userInfo.setUserAvatar(api.profileRes);
+  userInfo.setUserId(profileData, api.profileRes)
+  userInfo.getUserInfo(profileData)
+  api.cardsRes.reverse().forEach(item => {
+    createNewCard(item)
+  });
+})
+.catch(err => console.log(err));
+
 
 const popupWithImage = new PopupWithImage(popupSelectors.imagePopup)
 popupWithImage.setEventListeners()
@@ -141,13 +141,13 @@ const popupImageAdd = new PopupWithForm(popupSelectors.addPlacePopup,
   (data) => {
     data.likes = []
     data.likes.length = 0;
-    data.likes._id = userId;
+    data.likes._id = userInfo.getUserId();
     data.owner = {
       name: "",
       _id: ""
     }
     data.owner.name = profileData.name
-    data.owner._id = profileData._id
+    data.owner._id = userInfo.getUserId()
     api.addCard(data)
       .then((res) => {
         data._id = res._id
@@ -174,7 +174,7 @@ popupDelete.setEventListeners()
 
 editButton.addEventListener("click", () => {
   profilePopupFormValidator.clearForm()
-  const data = userInfo.getUserInfo();
+  const data = userInfo.getUserInfo(profileData);
   editedUsername.value = data.name;
   editedProfession.value = data.about;
   profilePopupFormValidator.toggleButtonState();

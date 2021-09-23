@@ -34,6 +34,5 @@ export const profileData = {
   avatar: "",
   cohort: "cohort-27",
   name: "",
-  _id: "3fe0c274-9eb1-4b1e-a5bb-2bea77a9fe15"
+  _id: ""
 };
-export const userId = 'fbb15bf9e92462388044ef4e'
