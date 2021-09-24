@@ -96,12 +96,12 @@ const cardsGetting = api.getCards()
 const profileGetting = api.getProfile()
 
 Promise.all([cardsGetting, profileGetting])
-.then(() => {
-  userInfo.setUserInfo(api.profileRes);
-  userInfo.setUserAvatar(api.profileRes);
-  userInfo.setUserId(profileData, api.profileRes)
+.then(([cards, profile]) => {
+  userInfo.setUserInfo(profile);
+  userInfo.setUserAvatar(profile);
+  userInfo.setUserId(profileData, profile)
   userInfo.getUserInfo(profileData)
-  api.cardsRes.reverse().forEach(item => {
+  cards.reverse().forEach(item => {
     createNewCard(item)
   });
 })

@@ -20,9 +20,6 @@ export class Api {
       }
     })
     .then(this._getResponseData)
-    .then((res) => {
-      this.cardsRes = res
-    })
   }
 
   getProfile() {
@@ -34,19 +31,8 @@ export class Api {
       }
     })
      .then(this._getResponseData)
-     .then((res) => {
-        this.profileRes = res
-    })
   }
 
-  getUserId(res){
-    if (res){
-      this.idRes = res._id
-      return this.idRes
-    }else{
-      return this.idRes
-    }
-  }
   editProfileInfo(profileData) {
     return fetch(`${this._url}users/me`, {
       method: 'PATCH',
