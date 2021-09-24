@@ -1,5 +1,3 @@
-import { profileData } from "../utils/constants"
-
 export  class UserInfo {
     constructor(nameSelector, aboutSelector, avatarSelector) {
       this._profileName = document.querySelector(nameSelector)
