@@ -26,8 +26,7 @@ import {
   avatarContainer,
   avatarSelector,
   profileData,
-  avatarForm,
-  userId
+  avatarForm
 } from '../js/utils/constants.js';
 
 function createNewCard(item){
